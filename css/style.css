@@ -74,6 +74,7 @@ header {
     text-align: center;
     color: white;
     padding: 15px 5px 5px 5px;
+    margin-bottom: 15px;
 }
 .products {
     display: grid;
@@ -81,9 +82,10 @@ header {
     grid-template-columns: 230px 230px 230px 230px;
     gap: 5% 2.5%;
     padding-bottom: 30px;
+    overflow-y: scroll;
 }
 .product {
-    background-color: #fefefeaa;
+    background-color: #fefefecb;
     border-radius: 10px;
     padding: 10px;
     text-align: center;
@@ -108,7 +110,7 @@ header {
 }
 footer {
     margin-top: 20px;
-    height: 200px;
+    height: 150px;
     border-top: 0.5px solid #888;
 }
 
