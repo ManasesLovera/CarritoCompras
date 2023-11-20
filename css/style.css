@@ -42,8 +42,8 @@ header {
     position: absolute;
     top: 90px;
     left: 80%;
-    width: 200px;
-    height: 300px;
+    width: 250px;
+    height: 350px;
     background-color: white;
     border: 1px solid black;
 }
@@ -56,6 +56,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px;
 }
 .container-menu {
     width: 100%;
@@ -64,7 +65,7 @@ header {
     align-items: center;
 }
 .menu {
-    padding:10px;
+    padding:10px 10px 70px 10px;
     width: 90%;
     margin: 10px 5%;
     background-color: #f5891ea7;
@@ -83,15 +84,27 @@ header {
     gap: 5% 2.5%;
     padding-bottom: 30px;
     overflow-y: scroll;
+} 
+.products::-webkit-scrollbar{
+    background: #fca64fe7;
+    border-radius: 10px;
+} 
+.products::-webkit-scrollbar-thumb{
+    background: #f89e44ed;
+    padding: 2px;
+    border-radius: 10px;
 }
 .product {
-    background-color: #fefefecb;
+    background-color: #fefefea1;
     border-radius: 10px;
     padding: 10px;
     text-align: center;
 }
 .product img {
     height: 100px;
+}
+.overflow-y {
+    overflow-y: scroll;
 }
 .product button {
     cursor: pointer;
@@ -109,9 +122,13 @@ header {
     background-color: #77f577;
 }
 footer {
+    display:flex;
+    align-items: flex-end;
     margin-top: 20px;
-    height: 150px;
+    height: 50px;
     border-top: 0.5px solid #888;
+    padding-bottom: 30px;
+    padding-left: 20px;
 }
 
 /* @media only screen and (min-width: 768px) {
@@ -151,10 +168,10 @@ footer {
     .cart {
         left: 65%;
     }
-    .products {
+     .products {
         overflow: hidden;
         overflow-y: scroll;
-    }
+    } 
 }
 @media only screen and (max-width: 610px) {
     .cart {

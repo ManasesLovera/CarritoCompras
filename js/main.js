@@ -26,19 +26,19 @@ const products = [
         {
             title: 'Pizza de queso',
             description: 'Pizza con varios quesos agregados',
-            img: 'source/productos/8.jpeg',
+            img: 'source/productos/5.jpg',
             cost: '300'
         },
         {
             title: 'Pizza de jamon',
             description: 'Pizza con pedazos de jamon',
-            img: 'source/productos/8.jpeg',
+            img: 'source/productos/6.jpg',
             cost: '300'
         },
         {
             title: 'Pizza de maiz',
             description: 'Pizza rica con maiz añadido',
-            img: 'source/productos/8.jpeg',
+            img: 'source/productos/7.jpg',
             cost: '300'
         },
         {
@@ -81,6 +81,7 @@ function goHome() {
 }
 let cart_shopping = document.querySelector('#cart-shopping')
 let cart = document.querySelector('.cart')
+
 cart_shopping.addEventListener('click', () => {
     if(cart.hasAttribute('hidden')){
         cart.removeAttribute('hidden')
@@ -91,7 +92,6 @@ cart_shopping.addEventListener('click', () => {
 
 window.onload = () => {
     for(let product of products){
-        //console.log(product)
         let product_html = document.createElement('div')
         product_html.className = 'product'        
         product_html.innerHTML = `
