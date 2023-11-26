@@ -84,6 +84,7 @@ header {
 .cart-element img {
     padding: 5px;
     max-height: 45px;
+    width: 70px;
 } 
 .element-amount {
     font-size: 12px;
@@ -172,6 +173,9 @@ header {
     border-radius: 10px;
     padding: 10px;
     text-align: center;
+}
+.product h3 {
+    font-size: 15px;
 }
 .product p {
     font-size: 14px;

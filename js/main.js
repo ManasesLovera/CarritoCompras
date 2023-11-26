@@ -112,6 +112,7 @@ cart_shopping.addEventListener('click', () => {
         cart.classList.add('hidden')
     }
 })
+
 //Function which clears the cart element
 function clear_cart() {
     for(product of products){
@@ -159,15 +160,42 @@ function fill_cart() {
         if(product.amount > 0) {
             let product_html = document.createElement('div');
             product_html.className = 'cart-element';
+            product_html.id = product.id
             product_html.innerHTML = `
-                <img src="${product.img}" alt="" style="width: 70px;">
+                <img src="${product.img}" alt="${product.title}">
                 <p class="element-title" >${product.title}</p>
                 <div class="cart-price">
-                    <p class="element-amount"> <span class="-">-</span> ${product.amount} <span class="+">+</span> </p>
+                    <p class="element-amount"> <span class="sub">-</span> ${product.amount} <span class="add">+</span> </p>
                     <p class="element-cost"> ${product.cost * product.amount} </p>
                 </div>
             `
             document.querySelector('#cart-elements').appendChild(product_html)
         }
     })
+    //EventListeners for decrease and increase amount of the products
+    let subList = document.querySelectorAll('.sub')
+    subList.forEach( e => {
+    e.addEventListener('click', sub => {
+        let product_id = sub.target.parentNode.parentNode.parentNode.id
+        console.log(product_id)
+        products.forEach( product => {
+            if(product.id == product_id) {
+                product.amount -= 1;
+                fill_cart()
+                return;
+            }
+        })
+    })})
+    let addList = document.querySelectorAll('.add')
+    addList.forEach( e => {
+    e.addEventListener('click', e => {
+        let product_id = e.target.parentNode.parentNode.parentNode.id
+        products.forEach( product => {
+            if(product.id == product_id) {
+                product.amount += 1;
+                fill_cart()
+                return;
+            }
+        })
+    })});
 }
