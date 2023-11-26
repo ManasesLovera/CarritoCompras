@@ -15,21 +15,42 @@
     <title>Big Bear Restaurant</title>
 </head>
 <body>
+    <!-- HEADER -->
     <header>
+        <!-- LOGO AND TITLE -->
         <div id="logo" class="logo-container">
-            <img class="logo" src="source/fast-food-logo.jpg">
+            <img class="logo" loading="lazy" src="source/fast-food-logo.jpg">
             <h3 class="logo-title">BIG BEAR RESTAURANT</h3>
         </div>
-        <img id="cart-shopping" class="cart-shopping" src="source/shopping-cart.jpg"></img>
+        <!-- CART SHOPPING ICON -->
+        <img id="cart-shopping" class="cart-shopping" loading="lazy" src="source/shopping-cart.jpg"></img>
     </header>
-    <div class="cart" hidden="true"></div>
+    <!-- CART SHOPPING -->
+    <div class="cart hidden">
+        <div class="cart-elements">
+            <div class="cart-element">
+                <img src="source/productos/1.jpg" alt="" style="width: 70px;">
+                <p class="element-title" >Hamburguesa</p>
+                <div class="cart-price">
+                    <p class="element-amount"> <span class="-">-</span> 1 <span class="+">+</span> </p>
+                    <p class="element-cost"> 200 </p>
+                </div>
+            </div>
+        </div>
+        <div class="clear-cart">Vaciar Carrito</div>
+    </div>
+    <!-- COVER -->
     <div class="cover"></div>
+    <!-- MENU -->
     <div class="menu">
+        <!-- MENU TITLE -->
         <h2 class="menu-title">MENU</h2>
+        <!-- ALL PRODUCTS IN THE MENU -->
         <div id="products" class="products"></div>
     </div>   
+    <!-- FOOTER -->
     <footer>
-        All rights reserved 2023
+        Todos los derechos reservados 2023
     </footer>
     <script src="js/main.js"></script>
 </body>

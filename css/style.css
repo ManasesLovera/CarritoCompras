@@ -2,10 +2,14 @@
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+    font-size: 12px;
 }
 :root {
     --color1: #f58a1e;
     --w: 100vw;
+}
+.hidden {
+    visibility: hidden;
 }
 body {
     background-color: #eee;
@@ -46,6 +50,65 @@ header {
     height: 350px;
     background-color: white;
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.cart-elements {
+    display: flex;
+    flex-direction: column;
+    padding: 3px;
+}
+.cart-element {
+    display: flex;
+    align-items: center;
+    border: 0.5px solid #999;
+    border-radius: 10px;
+    margin-top: 7px;
+    padding: 5px;
+    box-shadow: 3px 3px 10px #bbb;
+    height: 50px;
+    width: 220px;
+
+} 
+.element-title {
+    font-size: 12px;
+    margin: 0 6% 0 3%;
+}
+.cart-element img {
+    padding: 5px;
+} 
+.element-amount {
+    font-size: 12px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    padding: 4px;
+    width: 35px;
+    text-align: center;
+}
+.element-amount span {
+    cursor: pointer;
+    text-align: center;
+    padding: 0 1px;
+}
+.element-cost {
+    text-align: center;
+    padding-top: 2px;
+}
+.cart .clear-cart {
+    margin: 6px 4px 15px 4px;
+    padding: 6px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    width: 200px;
+    font-size: 13px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.cart .clear-cart:hover {
+    background: #eee;
 }
 .cover {
     background-image: url('../source/collage-various-fast-food-products.jpg');
@@ -67,14 +130,14 @@ header {
 .menu {
     padding:10px 10px 70px 10px;
     width: 90%;
-    margin: 10px 5%;
+    margin: auto;
     background-color: #f5891ea7;
     border-radius: 10px;
 }
 .menu-title {
     text-align: center;
     color: white;
-    padding: 15px 5px 5px 5px;
+    padding: 15px 5px 10px 5px;
     margin-bottom: 15px;
 }
 .products {
@@ -95,12 +158,20 @@ header {
     border-radius: 10px;
 }
 .product {
-    background-color: #fefefea1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 6px;
+    background-color: #fefefe6d;
     border-radius: 10px;
     padding: 10px;
     text-align: center;
 }
+.product p {
+    font-size: 14px;
+}
 .product img {
+    flex-grow: 1;
     height: 100px;
 }
 .overflow-y {
@@ -108,15 +179,16 @@ header {
 }
 .product button {
     cursor: pointer;
-    padding: 5px 6px;
+    padding: 6px 7px;
     margin: 5px;
     background-color: #51dc51;
-    color: #121212;
+    color: #033c00;
     border: none;
     border-radius: 5%;
     font-size: 14px;
     font-weight: bold;
     transition: all .2s ease;
+
 }
 .product button:hover {
     background-color: #77f577;
@@ -131,13 +203,12 @@ footer {
     padding-left: 20px;
 }
 
-/* @media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
 
     .cart {
         left: 80%;
     }
-} */
-
+} 
 @media only screen and (max-width: 1200px) {
     .products {
         grid-template-columns: 230px 230px 230px;
@@ -147,10 +218,18 @@ footer {
     .products {
         grid-template-columns: 230px 230px;
     }
+    .product h3 {
+        font-size: 18px;
+    }
 }
 @media only screen and (max-width: 560px) {
+    .menu {
+        padding:5px 5px 40px 5px;
+        width: 80%;
+    }
     .products {
-        grid-template-columns: 0.7fr;
+        grid-template-columns: 225px;
+        gap: 1%;
     }
     .product img {
         height: 70px;
