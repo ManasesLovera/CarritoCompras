@@ -58,16 +58,21 @@ header {
 .cart-elements {
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 3px;
+    overflow-y:auto;
+    height: 100%;
+    width: 100%;
 }
 .cart-element {
     display: flex;
     align-items: center;
-    border: 0.5px solid #999;
+    justify-content: space-between;
+    border: 0.5px solid #aaa;
     border-radius: 10px;
     margin-top: 7px;
     padding: 5px;
-    box-shadow: 3px 3px 10px #bbb;
+    box-shadow: 3px 3px 10px #ddd;
     height: 50px;
     width: 220px;
 
@@ -78,10 +83,11 @@ header {
 }
 .cart-element img {
     padding: 5px;
+    max-height: 45px;
 } 
 .element-amount {
     font-size: 12px;
-    border: 1px solid #888;
+    border: 1px solid #bbb;
     border-radius: 10px;
     padding: 4px;
     width: 35px;
@@ -96,8 +102,8 @@ header {
     text-align: center;
     padding-top: 2px;
 }
-.cart .clear-cart {
-    margin: 6px 4px 15px 4px;
+.clear-cart {
+    margin: 12px 4px;
     padding: 6px;
     border: 1px solid #888;
     border-radius: 5px;
@@ -105,7 +111,6 @@ header {
     font-size: 13px;
     text-align: center;
     cursor: pointer;
-    transition: 0.3s;
 }
 .cart .clear-cart:hover {
     background: #eee;
@@ -135,6 +140,7 @@ header {
     border-radius: 10px;
 }
 .menu-title {
+    font-size: 18px;
     text-align: center;
     color: white;
     padding: 15px 5px 10px 5px;
@@ -182,10 +188,10 @@ header {
     padding: 6px 7px;
     margin: 5px;
     background-color: #51dc51;
-    color: #033c00;
+    color: #066701;
     border: none;
     border-radius: 5%;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
     transition: all .2s ease;
 

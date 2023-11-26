@@ -1,3 +1,4 @@
+//All products allowed for sale
 const products = [
         { 
             id: 1,
@@ -96,17 +97,14 @@ const products = [
             amount: 0
         }
 ]
-let logo = document.getElementById('logo');
-
-logo.addEventListener('click', goHome);
-
-function goHome() {
-    window.location.href = 'index.html';
-}
+//EventListener click for the business icon and 
+//send back to the home page when clicked
+document.getElementById('logo').addEventListener('click',()=>{
+    window.location.href = 'index.html';});
+//Add EventListener to the cart icon and hide or show the cart
 let cart_shopping = document.querySelector('#cart-shopping')
 let cart = document.querySelector('.cart')
 cart.setAttribute('hidden', 'true')
-
 cart_shopping.addEventListener('click', () => {
     if(cart.classList.contains('hidden')) {
         cart.classList.remove('hidden')
@@ -114,7 +112,17 @@ cart_shopping.addEventListener('click', () => {
         cart.classList.add('hidden')
     }
 })
-
+//Function which clears the cart element
+function clear_cart() {
+    for(product of products){
+        product.amount = 0
+    }
+    fill_cart();
+}
+//Provides EventListener to the 'Vaciar Carrito' button and clear the cart
+document.querySelector('.clear-cart').addEventListener('click', clear_cart );
+//This function is called when the website is loaded and shows all the products
+//in the menu.
 window.onload = () => {
     for(let product of products){
         let product_html = document.createElement('div')
@@ -129,12 +137,26 @@ window.onload = () => {
         document.querySelector('#products').appendChild(product_html);
     }
 }
-
+//Function for the 'Agregar' button which adds one value to the product
+//and fills the cart
 function btn(id) {
     let found = false;
     products.forEach( product => {
         if (product.id === id){
             product.amount += 1;
+            fill_cart();
+            found = true;
+        }
+    })
+    if (!found) {
+        alert('no se encontro')
+    }
+}
+//This function fills the cart with the products
+function fill_cart() {
+    document.getElementById('cart-elements').innerHTML = '';
+    products.forEach( product => {
+        if(product.amount > 0) {
             let product_html = document.createElement('div');
             product_html.className = 'cart-element';
             product_html.innerHTML = `
@@ -142,15 +164,10 @@ function btn(id) {
                 <p class="element-title" >${product.title}</p>
                 <div class="cart-price">
                     <p class="element-amount"> <span class="-">-</span> ${product.amount} <span class="+">+</span> </p>
-                    <p class="element-cost"> ${product.cost} </p>
+                    <p class="element-cost"> ${product.cost * product.amount} </p>
                 </div>
             `
-            console.log(product_html)
             document.querySelector('#cart-elements').appendChild(product_html)
-            found = true;
         }
     })
-    if (!found) {
-        alert('no se encontro')
-    }
 }
