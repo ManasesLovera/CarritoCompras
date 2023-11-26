@@ -129,11 +129,24 @@ window.onload = () => {
         document.querySelector('#products').appendChild(product_html);
     }
 }
+
 function btn(id) {
     let found = false;
     products.forEach( product => {
         if (product.id === id){
-            alert(product.title)
+            product.amount += 1;
+            let product_html = document.createElement('div');
+            product_html.className = 'cart-element';
+            product_html.innerHTML = `
+                <img src="${product.img}" alt="" style="width: 70px;">
+                <p class="element-title" >${product.title}</p>
+                <div class="cart-price">
+                    <p class="element-amount"> <span class="-">-</span> ${product.amount} <span class="+">+</span> </p>
+                    <p class="element-cost"> ${product.cost} </p>
+                </div>
+            `
+            console.log(product_html)
+            document.querySelector('#cart-elements').appendChild(product_html)
             found = true;
         }
     })
